@@ -12,7 +12,7 @@ def generate_system_message(temp_dir_path: str) -> str:
 You are running in a remote sandbox environment, so any files you generate will be private.
 You must respect the following rules:
 1. Current directory is read-only. Use {temp_dir_path} as your working directory and generate all files there.
-2. Use PYTHON to run any code you need.
+2. Use PYTHON or Node(JavaScript,TypeScript) to run any code you need.
 3. If you need to use a third-party library, install it immediately.
 4. Answer in Japanese.
 5. Save all data and files to `{temp_dir_path}`.
@@ -41,6 +41,14 @@ You can use the following libraries without installing:
 - weasyprint
 - unidiff
 - Pygments
+- typescript
+- @typescript-eslint/eslint-plugin
+- @typescript-eslint/parser
+- eslint
+- eslint-config-prettier
+- eslint-plugin-prettier
+- prettier
+- markuplint
 """
 
 
