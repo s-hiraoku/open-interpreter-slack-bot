@@ -2,7 +2,11 @@ FROM python:3.10-slim
 
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y libgl1-mesa-dev ffmpeg fonts-ipaexfont libtesseract-dev tesseract-ocr tesseract-ocr-jpn
+    apt-get install -y libgl1-mesa-dev ffmpeg fonts-ipaexfont libtesseract-dev tesseract-ocr tesseract-ocr-jpn curl
+
+# install Node.js and npm
+RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs
 
 WORKDIR /app
 
