@@ -16,6 +16,8 @@ COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
+RUN npm install
+
 # Set japanese font for matplotlib
 RUN sed -i "s/^#font\.family.*/font.family:  IPAexGothic/g" /usr/local/lib/python3.10/site-packages/matplotlib/mpl-data/matplotlibrc
 
