@@ -41,6 +41,9 @@ You can use the following libraries without installing:
 - weasyprint
 - unidiff
 - Pygments
+- ESLint
+- Prettier
+- ts-migrate*
 """
 
 
