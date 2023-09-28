@@ -39,6 +39,8 @@ You can use the following libraries without installing:
 - pydub
 - pdfkit
 - weasyprint
+- unidiff
+- Pygments
 """
 
 
