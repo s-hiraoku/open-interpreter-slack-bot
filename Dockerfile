@@ -1,23 +1,23 @@
 FROM python:3.10-slim
 
+WORKDIR /app
+
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get install -y libgl1-mesa-dev ffmpeg fonts-ipaexfont libtesseract-dev tesseract-ocr tesseract-ocr-jpn curl
+    apt-get install -y libgl1-mesa-dev ffmpeg fonts-ipaexfont libtesseract-dev tesseract-ocr tesseract-ocr-jpn curl && \
+    rm -rf /var/lib/apt/lists/*
 
 # install Node.js and npm
 RUN curl -sL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs
+    apt-get install -y nodejs && \
+    rm -rf /var/lib/apt/lists/*
 
-WORKDIR /app
-
-RUN pip install --upgrade pip
-
+# install python packages
 COPY requirements.txt .
-
 RUN pip install -r requirements.txt
 
-COPY package.json .
-
+# install npm packages
+COPY package*.json ./
 RUN npm install
 
 # Set japanese font for matplotlib
